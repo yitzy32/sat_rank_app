@@ -2,13 +2,12 @@ class Api::SchoolsController < ApplicationController
   require "http"
 
   def index
-    @request = JSON.parse(HTTP.get("https://data.cityofnewyork.us/resource/f9bf-2cp4.json/"))
-
+    @schools = School.all
     render "index.json.jb"
   end
 
   def show
-    @school = JSON.parse(HTTP.get("https://data.cityofnewyork.us/resource/f9bf-2cp4.json?dbn=#{params[:dbn]}"))
+    @school = JSON.parse(HTTP.get("https://data.cityofnewyork.us/resource/f9bf-2cp4.json?school_name=HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES"))
     render "show.json.jb"
   end
 end

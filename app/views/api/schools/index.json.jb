@@ -1,4 +1,10 @@
-@request
-
-# take user input
-#
+@schools.map do |school|
+  {
+    dbn: school.dbn,
+    school_name: school.school_name,
+    num_of_sat_test_takers: school.num_of_sat_test_takers,
+    sat_critical_reading_avg_score: school.sat_critical_reading_avg_score,
+    sat_math_avg_score: school.sat_math_avg_score,
+    sat_writing_avg_score: school.sat_writing_avg_score,
+  }
+end
